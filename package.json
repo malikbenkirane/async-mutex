@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint src/**/*.ts test/**/*.ts",
     "build": "tsc && tsc -p tsconfig.es6.json && tsc -p tsconfig.mjs.json && rollup -o index.mjs mjs/index.js",
-    "prepublish": "yarn test && yarn build",
+    "prepare": "pnpm run build",
     "test": "yarn lint && nyc --reporter=text --reporter=html --reporter=lcov mocha test/*.ts",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },

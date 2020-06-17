@@ -54,6 +54,30 @@ mutex implementation described above.
 
 # How to use it?
 
+## Use this fork
+
+I would recommend you install via pnpm with the following content in your `pnpmfile.js`
+
+```js
+'use strict'
+module.exports = {
+    hooks: { readPackage }
+}
+
+function readPackage(pkg) {
+    if (pkg.dependencies['async-mutex']) {
+        pkg.dependencies['async-mutex'] = 'malikbenkirane/async-mutex';
+    }
+    return pkg;
+}
+```
+
+then
+
+```
+pnpm install --save async-mutex
+```
+
 ## Installation
 
 You can install the library into your project via npm
